@@ -13,7 +13,7 @@ const Navbar = ({ logo }) => {
           </a>
         </div>
         <div className="flex items-center">
-          <input className="rounded text-center" placeholder="Search" />
+          <input className="rounded text-center" placeholder="Search..." />
         </div>
       </div>
     </nav>
