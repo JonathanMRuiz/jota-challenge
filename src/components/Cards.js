@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
 const Cards = ({ image, title, description }) => {
   const [open, setOpen] = useState(false);
@@ -23,48 +24,54 @@ const Cards = ({ image, title, description }) => {
     p: 4,
   };
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button onClick={handleOpen}>Open modal</Button>
-        <Modal
-          keepMounted
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="keep-mounted-modal-title"
-          aria-describedby="keep-mounted-modal-description"
-        >
-          <Box sx={style}>
-            <Typography
-              id="keep-mounted-modal-title"
-              variant="h6"
-              component="h2"
-            >
-              Text in a modal
-            </Typography>
-            <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Modal>
-      </CardActions>
-    </Card>
+    <Container fixed>
+      <Grid container spacing={2}>
+        <Grid item xs={3}>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardActionArea>
+              <img src={image} alt={title} />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {description}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+
+            {/* MODAL */}
+            <CardActions>
+              <Button onClick={handleOpen}>Open modal</Button>
+              <Modal
+                keepMounted
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="keep-mounted-modal-title"
+                aria-describedby="keep-mounted-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="keep-mounted-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    Text in a modal
+                  </Typography>
+                  <Typography
+                    id="keep-mounted-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    Duis mollis, est non commodo luctus, nisi erat porttitor
+                    ligula.
+                  </Typography>
+                </Box>
+              </Modal>
+            </CardActions>
+          </Card>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

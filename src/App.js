@@ -1,17 +1,15 @@
 import "./App.css";
 import Home from "./pages/Home";
 import { QueryClient, QueryClientProvider } from "react-query";
-import GetData from "./api/GetData";
+import FetchData from "./api/FetchData";
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <Home />
-      <QueryClientProvider client={queryClient}>
-        <GetData />
-      </QueryClientProvider>
-    </div>
+      <FetchData />
+    </QueryClientProvider>
   );
 }
 
