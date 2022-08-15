@@ -1,14 +1,16 @@
-import "./App.css";
 import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import FetchData from "./api/FetchData";
+import Details from "./pages/Details";
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Home />
-      <FetchData />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details" element={<Details />} />
+      </Routes>
     </QueryClientProvider>
   );
 }
