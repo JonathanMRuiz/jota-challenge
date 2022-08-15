@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
 import Cards from "../components/Cards/Cards";
-import Grid from "@mui/material/Grid";
 
 const LIMIT = 10;
 const OFFSET = 0;

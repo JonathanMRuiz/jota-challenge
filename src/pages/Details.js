@@ -10,7 +10,7 @@ const Details = () => {
         <div>
           <p>Title image</p>
           <p>Image</p>
-          <p>Description</p>
+          <p>Stats</p>
         </div>
       </div>
     </Container>

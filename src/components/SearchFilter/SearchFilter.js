@@ -14,7 +14,7 @@ const SearchFilter = ({ onSearchChange }) => {
   return (
     <form onSubmit={handleSubmit}>
       <Input
-        className="bg-white"
+        className="bg-white rounded-md"
         placeholder="Search..."
         value={searchMovie}
         onChange={handlerChange}

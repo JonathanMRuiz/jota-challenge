@@ -1,16 +1,17 @@
 import React from "react";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import FetchData from "../api/FetchData";
-import Navbar from "../components/Navbar/Navbar";
-import Details from "./Details";
 
 const Home = () => {
   return (
-    <div className="h-full dark:bg-gray-800">
-      <Navbar logo={"Challenge"} />
-      <Details />
-
-      {/* <FetchData /> */}
-    </div>
+    <Container fixed>
+      <Grid spacing={6}>
+        <Grid item xs={3}>
+          <FetchData />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

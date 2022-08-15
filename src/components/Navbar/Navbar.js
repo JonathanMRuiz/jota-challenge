@@ -4,7 +4,7 @@ import SearchFilter from "../SearchFilter/SearchFilter";
 
 const Navbar = ({ logo }) => {
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900 ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <div>
           <Link to="/" className="flex items-center">
@@ -13,8 +13,20 @@ const Navbar = ({ logo }) => {
             </span>
           </Link>
         </div>
+
         <div className="flex items-center">
           <SearchFilter />
+        </div>
+
+        <div className="text-white">
+          <ul className="flex">
+            <li className="mr-6">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="">
+              <Link to="/details">Details</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
