@@ -14,9 +14,7 @@ const Navbar = ({ logo }) => {
           </Link>
         </div>
 
-        <div className="flex items-center">
-          <SearchFilter />
-        </div>
+        <div className="flex items-center">{/* <SearchFilter /> */}</div>
 
         <div className="text-white">
           <ul className="flex">
