@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,7 +21,9 @@ const Cards = ({ data, isLoading }) => {
       columns={{ xs: 4, sm: 8, md: 12 }}
     >
       {isLoading ? (
-        <p>Esta cargando...</p>
+        <Grid>
+          <CircularProgress />
+        </Grid>
       ) : (
         data?.pages?.map((page) =>
           page.response.map((response) => (

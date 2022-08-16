@@ -5,8 +5,10 @@ import Cards from "../components/Cards/Cards";
 const LIMIT = 30;
 const OFFSET = 0;
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const fetchPokemon = async ({
-  pageParam = `https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}&limit=${LIMIT}`,
+  pageParam = `${BASE_URL}/pokemon?offset=${OFFSET}&limit=${LIMIT}`,
 }) => {
   const request = await fetch(pageParam);
   const { results, next } = await request.json();
