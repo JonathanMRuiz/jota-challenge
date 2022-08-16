@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
 import Cards from "../components/Cards/Cards";
 
-const LIMIT = 25;
+const LIMIT = 30;
 const OFFSET = 0;
 
 const fetchPokemon = async ({

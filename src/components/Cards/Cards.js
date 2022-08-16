@@ -1,9 +1,7 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { CardActionArea, Container, Grid } from "@mui/material";
-import { FetchData } from "../../api/FetchData";
+
+import { Grid } from "@mui/material";
+
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 
@@ -18,15 +16,19 @@ const Cards = ({ data, isLoading }) => {
   return (
     <Grid
       container
-      spacing={{ xs: 2, md: 3 }}
+      spacing={{ xs: 4, md: 8 }}
       columns={{ xs: 4, sm: 8, md: 12 }}
     >
-      {data?.pages?.map((page) =>
-        page.response.map((response, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-            <Item>{response.name}</Item>
-          </Grid>
-        ))
+      {isLoading ? (
+        <p>Esta cargando...</p>
+      ) : (
+        data?.pages?.map((page) =>
+          page.response.map((response) => (
+            <Grid item xs={2} sm={4} md={4} key={response.id}>
+              <Item className="cursor-pointer">{response.name}</Item>
+            </Grid>
+          ))
+        )
       )}
     </Grid>
   );
