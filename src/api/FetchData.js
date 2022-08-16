@@ -8,8 +8,8 @@ const fetchRepositories = async (page = 1) => {
   return response.json();
 };
 
-const GetData = () => {
-  const { data, hasNextPage, fetchNextPage, pages } = useInfiniteQuery(
+const FetchData = () => {
+  const { data, hasNextPage, fetchNextPage } = useInfiniteQuery(
     "repositories",
     ({ pageParam = 1 }) => fetchRepositories(pageParam),
     {
@@ -20,8 +20,6 @@ const GetData = () => {
       },
     }
   );
-
-  console.log(data);
 
   useEffect(() => {
     let fetchingData = false;
@@ -61,4 +59,4 @@ const GetData = () => {
   );
 };
 
-export default GetData;
+export default FetchData;

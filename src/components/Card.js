@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "@mui/material/Card";
+import Cards from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
@@ -7,7 +7,7 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 
-const Cards = ({ image, title, description }) => {
+const Card = ({ image, title, description }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -23,26 +23,20 @@ const Cards = ({ image, title, description }) => {
     p: 4,
   };
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Cards sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
+        <CardMedia component="img" height="140" image={image} alt={title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button onClick={handleOpen}>Open modal</Button>
+        <Button onClick={handleOpen}>See Details</Button>
         <Modal
           keepMounted
           open={open}
@@ -56,16 +50,18 @@ const Cards = ({ image, title, description }) => {
               variant="h6"
               component="h2"
             >
-              Text in a modal
+              {title}
             </Typography>
             <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              {description}
             </Typography>
           </Box>
         </Modal>
       </CardActions>
-    </Card>
+    </Cards>
   );
 };
 
-export default Cards;
+export default Card;
+
+Card.propTypes = {};

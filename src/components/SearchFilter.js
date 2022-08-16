@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "@mui/material";
+import PropTypes from "prop-types";
 const SearchFilter = ({ onSearchChange }) => {
   const [searchMovie, setSearchMovie] = useState("");
 
@@ -24,3 +25,5 @@ const SearchFilter = ({ onSearchChange }) => {
 };
 
 export default SearchFilter;
+
+SearchFilter.propTypes = {};
