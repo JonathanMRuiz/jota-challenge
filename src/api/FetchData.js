@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
 import Cards from "../components/Cards/Cards";
 
-const LIMIT = 10;
+const LIMIT = 25;
 const OFFSET = 0;
 
 const fetchPokemon = async ({
@@ -26,7 +26,6 @@ const FetchData = () => {
     }
   );
 
-  console.log(data?.pages?.map((page) => page.response.map((res) => res.url)));
   useEffect(() => {
     let fetchingData = false;
     const onScroll = async (event) => {
@@ -50,15 +49,9 @@ const FetchData = () => {
   }, [fetchNextPage, hasNextPage]);
 
   return (
-    <div>
-      {isLoading ? (
-        <p>Esta cargando</p>
-      ) : (
-        data?.pages?.map((group) =>
-          group.response.map((pokemon) => <Cards title={pokemon.name} />)
-        )
-      )}
-    </div>
+    <>
+      <Cards data={data} isLoading={isLoading} />
+    </>
   );
 };
 

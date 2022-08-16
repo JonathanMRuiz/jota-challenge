@@ -1,24 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Input } from "@mui/material";
-const SearchFilter = ({ onSearchChange }) => {
-  const [searchMovie, setSearchMovie] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearchChange(searchMovie);
-  };
-
-  const handlerChange = (e) => {
-    setSearchMovie(e.target.value);
-  };
+const SearchFilter = () => {
   return (
-    <form onSubmit={handleSubmit}>
-      <Input
-        className="bg-white rounded-md"
-        placeholder="Search..."
-        value={searchMovie}
-        onChange={handlerChange}
-      />
+    <form>
+      <Input className="bg-white rounded-md" placeholder="Search..." />
     </form>
   );
 };
