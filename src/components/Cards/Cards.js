@@ -5,6 +5,7 @@ import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -28,7 +29,9 @@ const Cards = ({ data, isLoading }) => {
         data?.pages?.map((page) =>
           page.response.map((response) => (
             <Grid item xs={2} sm={4} md={4} key={response.id}>
-              <Item className="cursor-pointer">{response.name}</Item>
+              <Link to={`/details/${response.name}`}>
+                <Item className="cursor-pointer">{response.name}</Item>
+              </Link>
             </Grid>
           ))
         )

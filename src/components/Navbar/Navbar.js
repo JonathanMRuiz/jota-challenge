@@ -21,9 +21,6 @@ const Navbar = ({ logo }) => {
             <li className="mr-6">
               <Link to="/">Home</Link>
             </li>
-            <li className="">
-              <Link to="/details">Details</Link>
-            </li>
           </ul>
         </div>
       </div>
