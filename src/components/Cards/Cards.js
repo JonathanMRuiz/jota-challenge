@@ -29,7 +29,10 @@ const Cards = ({ data, isLoading }) => {
         data?.pages?.map((page) =>
           page.response.map((response) => (
             <Grid item xs={2} sm={4} md={4} key={response.id}>
-              <Link to={`/details/${response.name}`}>
+              <Link
+                state={{ name: response.name }}
+                to={`/details/${response.name}`}
+              >
                 <Item className="cursor-pointer">{response.name}</Item>
               </Link>
             </Grid>
