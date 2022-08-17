@@ -6,7 +6,7 @@ import Home from "./Home";
 const Index = () => {
   return (
     <div className="h-full dark:bg-gray-800">
-      <Navbar logo={"Challenge"} />
+      <Navbar logo="Challenge" />
       <Home />
     </div>
   );

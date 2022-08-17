@@ -11,8 +11,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <Index />
       <Routes>
+        <Route path="/" element={<Index />} />
         <Route path="/details/:name" element={<Details />} />
       </Routes>
     </QueryClientProvider>
