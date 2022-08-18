@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useInfiniteQuery } from "react-query";
-import Cards from "../components/Cards/Cards";
+import { useInfiniteQuery, useQuery } from "react-query";
+import { useParams } from "react-router-dom";
 
 const LIMIT = 30;
 const OFFSET = 0;
@@ -19,7 +19,19 @@ const fetchPokemon = async ({
   };
 };
 
-const FetchData = () => {
+const usePokemon = () => {
+  const { name } = useParams();
+  const { isLoading, data } = useQuery(["pokemon", name], async () => {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+
+    const results = await response.json();
+    return results;
+  });
+
+  return { pokemon: data || [], isLoading };
+};
+
+const usePokemons = () => {
   const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery(
     "pokemon",
     fetchPokemon,
@@ -50,11 +62,7 @@ const FetchData = () => {
     };
   }, [fetchNextPage, hasNextPage]);
 
-  return (
-    <>
-      <Cards data={data} isLoading={isLoading} />
-    </>
-  );
+  return { pokemons: data?.pages.flatMap((page) => page.response), isLoading };
 };
 
-export default FetchData;
+export { usePokemons, usePokemon };

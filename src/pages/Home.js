@@ -1,16 +1,14 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import FetchData from "../api/FetchData";
-
+import { usePokemons } from "../hooks/usePokemons";
+import Cards from "../components/Card/Card";
 const Home = () => {
+  const { pokemons, isLoading } = usePokemons();
+
+  console.log(pokemons);
   return (
     <Container fixed>
-      <Grid spacing={6}>
-        <Grid item xs={3}>
-          <FetchData />
-        </Grid>
-      </Grid>
+      <Cards pokemons={pokemons} isLoading={isLoading} />
     </Container>
   );
 };

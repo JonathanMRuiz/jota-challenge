@@ -1,6 +1,4 @@
-import SearchData from "../api/SearchData";
 import Navbar from "../components/Navbar/Navbar";
-import Details from "./Details";
 import Home from "./Home";
 
 const Index = () => {

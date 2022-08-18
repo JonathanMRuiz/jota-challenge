@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import SearchFilter from "../SearchFilter/SearchFilter";
+import PropTypes from "prop-types";
 
 const Navbar = ({ logo }) => {
   return (
@@ -14,7 +14,7 @@ const Navbar = ({ logo }) => {
           </Link>
         </div>
 
-        <div className="flex items-center">{/* <SearchFilter /> */}</div>
+        <div className="flex items-center"></div>
 
         <div className="text-white">
           <ul className="flex">
@@ -29,3 +29,7 @@ const Navbar = ({ logo }) => {
 };
 
 export default Navbar;
+
+Navbar.propType = {
+  logo: PropTypes.string,
+};
